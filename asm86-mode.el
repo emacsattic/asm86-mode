@@ -285,7 +285,7 @@ that value is bound and has a non-nil value.
      ((?' . "\"")                       ; string quote
       (?; . "<")                        ; comment start (semicolon)
        (?\n . ">"))                     ; comment end (end of line)
-     beginning-of-line))
+     beginning-of-line)))
 
   ;; Miscellaneous things to do: 
   (setq enable-local-variables nil)  ; else this causes complaints with function
