@@ -1932,4 +1932,5 @@ that value is bound and has a non-nil value.
 ;; 02/01/07 - Added name and date to the file header.
 ;;
 
+(provide 'asm86-mode)
 ;;; asm86-mode.el ends here 
