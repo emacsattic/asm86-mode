@@ -283,9 +283,9 @@ that value is bound and has a non-nil value.
   (setq font-lock-defaults '(asm86-font-lock-keywords nil t 
      ;; Define important syntax table entries (for font-lock):
      ((?' . "\"")                       ; string quote
-      (?; . "<")                        ; comment start (semicolon)
-       (?\n . ">"))                     ; comment end (end of line)
-     beginning-of-line)))
+      (?\; . "<")                       ; comment start (semicolon)
+      (?\n . ">"))                      ; comment end (end of line)
+     beginning-of-line))
 
   ;; Miscellaneous things to do: 
   (setq enable-local-variables nil)  ; else this causes complaints with function
