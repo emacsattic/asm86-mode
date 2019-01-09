@@ -1,4 +1,4 @@
-;;; asm86-mode.el -- major mode for Asm86 assembly
+;;; asm86-mode.el --- major mode for Asm86 assembly
 ;;
 ;; Author: Gabe Wenz <wenz@ugcs.caltech.edu>
 ;; Maintainer: Gabe Wenz <wenz@ugcs.caltech.edu>
@@ -283,9 +283,9 @@ that value is bound and has a non-nil value.
   (setq font-lock-defaults '(asm86-font-lock-keywords nil t 
      ;; Define important syntax table entries (for font-lock):
      ((?' . "\"")                       ; string quote
-      (?; . "<")                        ; comment start (semicolon)
-       (?\n . ">"))                     ; comment end (end of line)
-     beginning-of-line)))
+      (?\; . "<")                       ; comment start (semicolon)
+      (?\n . ">"))                      ; comment end (end of line)
+     beginning-of-line))
 
   ;; Miscellaneous things to do: 
   (setq enable-local-variables nil)  ; else this causes complaints with function
@@ -793,7 +793,7 @@ that value is bound and has a non-nil value.
                     (while (and (char-equal (char-after (- (point) 2)) ?\ )
                                 (> cur-offset pos))
                       (setq cur-offset (1- cur-offset))  ; update count
-                      (delete-backward-char 1))          ; knock out a space
+                      (delete-char -1))          ; knock out a space
                     ))
 
              ; Finally, make sure to have at least one space between
@@ -995,7 +995,7 @@ that value is bound and has a non-nil value.
                ))
       
         ;; Final results depends on whether invoked interactively:
-        (if (interactive-p)
+        (if (called-interactively-p 'interactive)
             (message (prin1-to-string line-type))       ; print it in minibuffer
           line-type)                                    ; return it
         ))))
@@ -1097,7 +1097,7 @@ that value is bound and has a non-nil value.
         (forward-line -1))
       
       (setq ans (asm86-line-contains "PROC"))
-      (if (interactive-p)
+      (if (called-interactively-p 'interactive)
           (if ans
               (message "True")
             (message "False"))
@@ -1751,7 +1751,7 @@ that value is bound and has a non-nil value.
       ; search from beginning of line to last meaningful character on the
       ; line:
       (beginning-of-line)
-      (if (interactive-p)
+      (if (called-interactively-p 'interactive)
 	  ; Interactive: print result in minibuffer.
 	  (if (word-search-forward keyword line-end t)
 	      (message "True")
@@ -1800,7 +1800,7 @@ that value is bound and has a non-nil value.
       (setq line-end (point))      ; have the limit value now
       (beginning-of-line)
 
-      (if (interactive-p)
+      (if (called-interactively-p 'interactive)
 	  ; Interactive: print result in minibuffer.
 	  (if (word-search-forward keyword line-end t)
 	      (message "True")
