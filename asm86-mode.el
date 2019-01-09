@@ -1,4 +1,4 @@
-;;; asm86-mode.el -- major mode for Asm86 assembly
+;;; asm86-mode.el --- major mode for Asm86 assembly
 ;;
 ;; Author: Gabe Wenz <wenz@ugcs.caltech.edu>
 ;; Maintainer: Gabe Wenz <wenz@ugcs.caltech.edu>
